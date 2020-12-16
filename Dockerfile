@@ -2,6 +2,9 @@ FROM python:3.9-alpine
 
 LABEL MAINTAINER=jo
 
+ARG PORT=7777
+ENV PORT $PORT
+
 RUN pip install --no-cache pipenv==2020.11.15
 
 COPY Pipfile* /
@@ -10,6 +13,6 @@ RUN pipenv install --system
 COPY main.py /app/main.py
 
 WORKDIR /app
-EXPOSE 7777
+EXPOSE $PORT
 
-CMD ["uvicorn", "--host", "0.0.0.0", "--port", "7777", "main:app"]
+CMD /usr/local/bin/uvicorn --host 0.0.0.0 --port $PORT main:app
