@@ -2,7 +2,7 @@ FROM python:3.9-alpine
 
 LABEL MAINTAINER=jo
 
-RUN pip install --no-cache pipenv
+RUN pip install --no-cache pipenv==2020.11.15
 
 COPY Pipfile* /
 RUN pipenv install --system
