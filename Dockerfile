@@ -12,4 +12,5 @@ WORKDIR /app
 
 EXPOSE 7777
 
-CMD ["python", "main.py"]
+#CMD ["python", "main.py"]
+CMD ["uvicorn", "--host", "0.0.0.0", "--port", "7777", "main:app"]
