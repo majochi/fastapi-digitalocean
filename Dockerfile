@@ -5,7 +5,7 @@ LABEL MAINTAINER=jo
 ARG PORT=7777
 ENV PORT $PORT
 
-RUN pip install --no-cache pipenv==2020.11.15
+RUN pip install --no-cache-dir pipenv==2020.11.15
 
 COPY Pipfile* /
 RUN pipenv install --system
